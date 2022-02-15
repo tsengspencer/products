@@ -7,6 +7,10 @@ while True:
 	price = input("請輸入商品價格") #如果是quit，則直接break,
 	p = [name, price] #將商品名稱和價格存成清單
 	products.append(p)
-print(products)
+#print(products)
 
+
+#分別印出商品與價格
+for p in products:
+	print(p[0], "的價格是", p[1])
 
