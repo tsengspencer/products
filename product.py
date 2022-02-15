@@ -1,12 +1,18 @@
-#讀取現有檔案
-products = []
-with open("products.csv", "r", encoding="utf-8") as f:
-	for line in f: #讀取f的每一行
-		if "商品,價格" in line:
-			continue #如果商品、價格在行裡面的話，就跳到下一個for loop
-		name, price = line.strip().split(",") #字串可以用split去做切割
-		products.append([name, price]) #製造一個小清單
-print(products)
+#檢查檔案是否在電腦裡面
+import os #operating system
+products = []  #不論有沒有檔案，都需要使用到product
+if os.path.isfile('products.csv'): #檢查檔案是否存在
+	print("找到檔案!")
+	#讀取現有檔案
+	with open("products.csv", "r", encoding="utf-8") as f:
+		for line in f: #讀取f的每一行
+			if "商品,價格" in line:
+				continue #如果商品、價格在行裡面的話，就跳到下一個for loop
+			name, price = line.strip().split(",") #字串可以用split去做切割
+			products.append([name, price]) #製造一個小清單
+	print(products)
+else:
+	print("無法找到檔案")
 
 # 使用者輸入
 while True:
